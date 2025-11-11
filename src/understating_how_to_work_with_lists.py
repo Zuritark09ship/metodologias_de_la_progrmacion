@@ -19,5 +19,14 @@ print("Gracias a todos por participar en el show")
 python utiliza la indentacion para definir bloques de codigo
  en lugar de llaves {} o palabras clave como begin end
 """
+#no olvidemos identar
+magicians = ["ron","hermione","harry"] 
+for magician in magicians :
+    print(magician)
+   
+    print(f"i can't wait to see the next trick , {magician.title()}")
 
+#identacion inecesaria 
+message = "Hello Python "
+print(message)
 
