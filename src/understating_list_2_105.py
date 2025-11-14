@@ -30,3 +30,39 @@ my_foods_1= my_foods[:]
 my_foods_2 = my_foods.copy()
 my_foods_3=list(my_foods)
 
+"""
+copia una lista
+"""
+my_foods= ["pizza","tacos","falutas","goriditas"]
+#my_foods_copy= my_foods #error eswa no es la manera
+my_foods_1= my_foods[:]
+my_foods_2 = my_foods.copy()
+my_foods_3=list(my_foods)
+
+"""
+copia una lista
+"""
+my_foods= ["pizza","tacos","falutas","goriditas"]
+#my_foods_copy= my_foods #error eswa no es la manera
+my_foods_1= my_foods[:]
+my_foods_2 = my_foods.copy()
+my_foods_3=list(my_foods)
+
+"""
+copia una lista
+"""
+my_foods= ["pizza","tacos","falutas","goriditas"]
+#my_foods_copy= my_foods #error eswa no es la manera
+my_foods_1= my_foods[:]
+my_foods_2 = my_foods.copy()
+my_foods_3=list(my_foods)
+
+"""
+copia una lista
+"""
+my_foods= ["pizza","tacos","falutas","goriditas"]
+#my_foods_copy= my_foods #error eswa no es la manera
+my_foods_1= my_foods[:]
+my_foods_2 = my_foods.copy()
+my_foods_3=list(my_foods)
+
