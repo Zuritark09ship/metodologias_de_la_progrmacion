@@ -76,3 +76,61 @@ if age>=18:
     print("tienes la edad suficiente para votar")
 else:
     print("no tienes la edad suficiente para votar")
+
+#
+#try:
+    #age= int(input("escribe tu edad: "))
+   
+#except:
+    age = -1
+    #print("error caracter no valido")
+#<>
+if age >= 100:
+    print("tienes mas de un siglo")
+elif age >= 18 and age < 100:
+    print("eres mayor de edad: ")
+elif age >=0 and age < 18:
+    print("eres menor de edad ")
+else:
+    print("eres menor de edad: ")
+
+
+try :
+   age= int(input("escribe tu edad: "))
+except :
+ print("error, ingresas un caracter no valido")
+
+
+if age <= 4:
+    print("tienes entrada gratuita")
+elif age <18 and age >4 :
+    print("su entrada es de $200")
+elif age >=18:
+    print("la entrada cuesta 400")
+
+#multipe if
+
+guisos =["desebrada", "asado", "salsa verde", "pozole"]
+if "salsaverde" in guisos:
+    print("si hay guisi")
+if "asado" in guisos:
+    print("si hay guisos")
+if "desebrada " in guisos:
+    print("si hay guisos")
+if "pozole" in guisos:
+    print("si hay guisos")
+if "tamales" in guisos:
+    print("no hay tamales ")
+
+#utilizando varias listas
+guisos_disponibles =["desebrada"," mole", "salsa verde"]
+guisos_a_ordenar = ["desebrada","mole"]
+print("¿que guiso desea ordena?")
+for guiso in guisos_a_ordenar:
+    print(f"deseo{guiso}")
+    if guiso in guisos_disponibles:
+        print(f"si tenemos{guiso}")
+    else:
+        print("no tenemos de ese guiso")
+print("realizando pedido...")
+
