@@ -22,4 +22,4 @@ print(marge_0["color"])
 homer_0["x-posicion"]=15
 homer_0["y-posicion"]=20
 homer_0["z-posicion"]=10
-print(homer_0)
+print(homer_0)  
