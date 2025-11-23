@@ -237,4 +237,44 @@ else:
 # línea con el siguiente formato:
 
 product_name = input("seet your product name: ").strip()
-price_value = input("")
+price_value = input("ingrese el precio :").strip()
+
+if len(product_name) == 0:
+    print("Error: el nombre del producto no puede estar vacío.")
+else:
+    try:
+        price_num = float(price_value)
+        if price_num <= 0:
+            print("Error: el precio debe ser positivo.")
+        else:
+            price_str = str(price_num)
+            label = f"Product: {product_name} | Price: ${price_str}"
+
+            if len(label) > 30:
+                label = label[:30]
+            elif len(label) < 30:
+                label = label + (" " * (30 - len(label)))
+            print(f"Label: \"{label}\"")
+    except ValueError:
+        print("Error: el precio debe ser un número.")
+
+#8. CONCLUSIONES (COMENTARIOS AL FINAL)
+
+# Las cadenas son esenciales porque casi toda la entrada del usuario llega como texto y debemos procesarla correctamente.
+# Funciones como lower(), strip() y split() permiten limpiar, uniformar y separar información para analizarla sin errores.
+# Normalizar texto antes de compararlo es clave para evitar diferencias por mayúsculas, espacios o formatos inconsistentes.
+# Las validaciones ayudan a detectar datos incompletos o incorrectos y evitan que el programa falle o produzca resultados basura.
+# Aprendí que los strings son inmutables, por lo que cada modificación genera una nueva cadena y por eso usamos slices para obtener partes específicas.
+# También comprendí que join() es útil para volver a unir palabras y que los slicing facilitan extraer fragmentos sin alterar el original.
+# Todo esto permite crear programas más robustos y confiables al procesar datos textuales.
+
+
+#9. REFERENCIAS (MÍNIMO 5) – EN COMENTARIOS
+
+# References:
+# 1) Python documentation – Built-in Types: Text Sequence Type — str
+# 2) Python Official Docs – String Methods
+# 3) W3Schools – Python Strings Tutorial
+# 4) "Automate the Boring Stuff with Python" – Capítulos sobre manejo de texto
+# 5) Real Python – Articles on String Manipulation and Validation
+# 6) Programiz – Python String Examples and Explanations
