@@ -230,3 +230,11 @@ else:
         print(" pasword strength: medium")
     else:
         print("pasword strength: weak")
+
+#7.6 Problem 6: Product label formatter (fixed-width text)
+#Descripción:
+#Dado el nombre de un producto y su precio, genera una etiqueta en una sola 
+# línea con el siguiente formato:
+
+product_name = input("seet your product name: ").strip()
+price_value = input("")
