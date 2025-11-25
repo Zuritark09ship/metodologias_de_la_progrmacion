@@ -44,3 +44,31 @@ for key in alien_2.keys():
 ##looping though items
 for item in alien_2.items():
     print(item)
+
+## lsitas de dicionarios
+convenanst== {
+    "convenans_grut",
+    "convenans_elite", 
+    "convenanst_jackal":
+ }
+for convenanst in convenans :
+    print("\n", convenants),
+for key, value in convenants.items():
+   print 
+
+# dicionarios en dicionarios
+sensor = {
+    "temperature":{
+        "id":"tamp_1",
+        "localitation": "aula 105",
+        "value":25,
+        "unit" :"porsentaje"
+    } ,
+   "humedad": {
+       "id": "hum_1",
+       "location": "aulea 105",
+     "value": 39,
+   }
+}
+print(input "temperature our humedad")
+print(sensor)

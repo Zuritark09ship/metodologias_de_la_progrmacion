@@ -3,6 +3,9 @@
 #Grupo: A-105
 
 #3. CONVENCIONES (NAMING Y OUTPUT EN INGLÉS)
+from curses import ALL_MOUSE_EVENTS
+
+
 TAX_RATE = 0.15
 
 hours_worked_input = input("Enter hours worked: ").strip()
@@ -141,38 +144,70 @@ else:
             print(f"has_overtime: {str(has_overtime).lower()}")
     except ValueError:
         print("ERROR")
-        
+
 "7.3 Problem 3: Discount eligibility with booleans  "
 
-purchase_total_text = input("Enter purchase total: ").strip()
-is_student_text = input("Is student? (yes/no): ").strip()
-is_senior_text = input("Is senior? (yes/no): ").strip()
+purchase_total_text = input("Enter purchase total: ")
+is_student_text = input("Is student? (YES/NO): ")
+is_senior_text = input("Is senior? (YES/NO): ")
 
-if purchase_total_text == "" or is_student_text == "" or is_senior_text == "":
+# Validation: purchase_total must be float and >= 0.0
+try:
+    purchase_total = float(purchase_total_text)
+except:
+    print("Error: invalid input")
+    exit()
+
+if purchase_total < 0.0:
+    print("Error: invalid input")
+    exit()
+
+
+is_student_text = is_student_text.strip().upper()
+is_senior_text = is_senior_text.strip().upper()
+
+
+if is_student_text not in ("YES", "NO") or is_senior_text not in ("YES", "NO"):
+    print("Error: invalid input")
+    exit()
+
+is_student = (is_student_text == "YES")
+is_senior = (is_senior_text == "YES")
+
+discount_eligible = is_student or is_senior or (purchase_total >= 1000.0)
+
+
+if discount_eligible:
+    final_total = purchase_total * 0.9
+else:
+    final_total = purchase_total
+
+
+print(f"Discount eligible: {str(discount_eligible).lower()}")
+print(f"Final total: {final_total}")
+
+
+
+"7.4 Problem 4: Basic statistics of three integers"
+
+N1= input("seet your number A: ")
+N2= input("seet your number B:")
+N3= input("seet ypur number C :")
+
+if N1 and N2 and N2 == "" :
     print("ERROR")
 else:
     try:
-        purchase_total = float(purchase_total_text)
-        if purchase_total < 0:
-            print("ERROR")
-        else:
-            is_student_text = is_student_text.upper()
-            is_senior_text = is_senior_text.upper()
-
-            if is_student_text not in ("YES", "NO") or is_senior_text not in ("YES", "NO"):
-                print("ERROR")
-            else:
-                is_student = (is_student_text == "YES")
-                is_senior = (is_senior_text == "YES")
-                discount_eligible = is_student or is_senior or (purchase_total >= 1000.0)
-                if discount_eligible:
-                    final_total = purchase_total * 0.9
-                else:
-                    final_total = purchase_total
-                print(f"Discount eligible: {str(discount_eligible).lower()}")
-                print(f"Final total: {final_total}")
-    except ValueError:
-        print("ERROR")
-print(f"Final total: {final_total}")
-
+        sum= (N1+N2+N3)
+        print(sum)
+        average_value = sum / 3
+        print(average_value)
+        max_valuable = max(N1,N2,N3)
+        print(max_valuable)
+        min_valuable = min(N1,N2,N3)
+        print(min_valuable)
+        if  all_eve(N1%2 =0)and (N2%2 =0) and (N3%2 =0)
+    except:
+       print(all_even)
+    
 
