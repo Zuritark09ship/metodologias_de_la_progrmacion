@@ -90,14 +90,14 @@ else:
 #7. PROBLEMAS
 
 #7.1 Problem 1: Temperature converter and range flag
+temp_c_input = input("Enter temperature in Celsius: ").strip()
 
-temperature_c = input ("seet your temperature in celsius:").strip()
-
-if temperature_c == "":
+if temp_c_input == "":
     print("Error: invalid input")
 else:
     try:
-        temp_c = float(temperature_c)
+        temp_c = float(temp_c_input)
+
         temp_f = temp_c * 9 / 5 + 32
         temp_k = temp_c + 273.15
 
@@ -105,11 +105,74 @@ else:
             print("Error: invalid input")
         else:
             is_high_temperature = (temp_c >= 30.0)
-     
+
             print(f"Fahrenheit: {temp_f}")
             print(f"Kelvin: {temp_k}")
             print(f"High temperature: {str(is_high_temperature).lower()}")
 
     except ValueError:
         print("Error: invalid input")
+
+
+"7.2 Problem 2: Work hours and overtime payment"
+hours_worked_text = input("Enter your hours worked: ").strip()
+hourly_rate_text = input("Enter your hourly rate: ").strip()
+
+if hours_worked_text == "" or hourly_rate_text == "":
+    print("ERROR")
+else:
+    try:
+        hours_worked = float(hours_worked_text)
+        hourly_rate = float(hourly_rate_text)
+
+        if hours_worked < 0 or hourly_rate < 0:
+            print("ERROR")
+        else:
+            regular_hours = min(hours_worked, 40)
+            time_extra = max(hours_worked - 40, 0)
+            regular_pay = regular_hours * hourly_rate
+            time_extra_pay = time_extra * (hourly_rate * 1.5)
+            total_pay = regular_pay + time_extra_pay
+            has_overtime = hours_worked > 40
+
+            print(f"regular_pay: {regular_pay}")
+            print(f"time_extra_pay: {time_extra_pay}")
+            print(f"total_pay: {total_pay}")
+            print(f"has_overtime: {str(has_overtime).lower()}")
+    except ValueError:
+        print("ERROR")
+        
+"7.3 Problem 3: Discount eligibility with booleans  "
+
+purchase_total_text = input("Enter purchase total: ").strip()
+is_student_text = input("Is student? (yes/no): ").strip()
+is_senior_text = input("Is senior? (yes/no): ").strip()
+
+if purchase_total_text == "" or is_student_text == "" or is_senior_text == "":
+    print("ERROR")
+else:
+    try:
+        purchase_total = float(purchase_total_text)
+        if purchase_total < 0:
+            print("ERROR")
+        else:
+            is_student_text = is_student_text.upper()
+            is_senior_text = is_senior_text.upper()
+
+            if is_student_text not in ("YES", "NO") or is_senior_text not in ("YES", "NO"):
+                print("ERROR")
+            else:
+                is_student = (is_student_text == "YES")
+                is_senior = (is_senior_text == "YES")
+                discount_eligible = is_student or is_senior or (purchase_total >= 1000.0)
+                if discount_eligible:
+                    final_total = purchase_total * 0.9
+                else:
+                    final_total = purchase_total
+                print(f"Discount eligible: {str(discount_eligible).lower()}")
+                print(f"Final total: {final_total}")
+    except ValueError:
+        print("ERROR")
+print(f"Final total: {final_total}")
+
 
