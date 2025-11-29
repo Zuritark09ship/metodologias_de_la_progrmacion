@@ -8,10 +8,14 @@ while True:
     try:
         number = int(input("ingrese un numero: "))
 
-        if number >=25 and number <=50 :
+        if 10 <= number <=20 :
             print("estas dentro del rango")
             break
         else:
             print("estas fuera de rango")
     except ValueError:
         print("se ha introducido una variable ")
+    except KeyboardInterrupt:
+        print("programa terminandopor el usuario ")
+        break
+print("saliste de while yupii")

@@ -3,35 +3,42 @@
 #Grupo: A-105
 
 #3. CONVENCIONES (NAMING Y OUTPUT EN INGLÉS)
-from curses import ALL_MOUSE_EVENTS
+# Algorithm: weekly_pay_calculation
 
+hours_text = input("Enter hours worked: ")
+rate_text = input("Enter hourly rate: ")
 
-TAX_RATE = 0.15
-
-hours_worked_input = input("Enter hours worked: ").strip()
-hourly_rate_input = input("Enter hourly rate: ").strip()
-
-if hours_worked_input == "" or hourly_rate_input == "":
+# Validate numeric conversion
+try:
+    hours_worked = float(hours_text)
+    hourly_rate = float(rate_text)
+except:
     print("Error: invalid input")
-else:
-    try:
-        hours_worked = float(hours_worked_input)
-        hourly_rate = float(hourly_rate_input)
+    exit()
 
-        if hours_worked < 0 or hourly_rate < 0:
-            print("Error: invalid input")
-        else:
-            gross_salary = hours_worked * hourly_rate
-            tax_amount = gross_salary * TAX_RATE
-            net_salary = gross_salary - tax_amount
+# Validate ranges
+if hours_worked < 0 or hourly_rate <= 0:
+    print("Error: invalid input")
+    exit()
 
-            print(f"Total hours: {hours_worked}")
-            print(f"Gross salary: {gross_salary}")
-            print(f"Tax amount: {tax_amount}")
-            print(f"Net salary: {net_salary}")
+# Separate regular and overtime hours
+regular_hours = min(hours_worked, 40)
+overtime_hours = max(hours_worked - 40, 0)
 
-    except ValueError:
-        print("Error: invalid input")
+# Calculations
+regular_pay = regular_hours * hourly_rate
+overtime_pay = overtime_hours * hourly_rate * 1.5
+total_pay = regular_pay + overtime_pay
+
+# Boolean
+has_overtime = hours_worked > 40
+
+# Output
+print(f"Regular pay: {regular_pay}")
+print(f"Overtime pay: {overtime_pay}")
+print(f"Total pay: {total_pay}")
+print(f"Has overtime: {has_overtime}")
+
 
  
 "4. RESUMEN EJECUTIVO (COMENTARIOS EN EL .py)"
@@ -189,25 +196,108 @@ print(f"Final total: {final_total}")
 
 
 "7.4 Problem 4: Basic statistics of three integers"
+n1_text = input("Enter first number: ").strip()
+n2_text = input("Enter second number: ").strip()
+n3_text = input("Enter third number: ").strip()
 
-N1= input("seet your number A: ")
-N2= input("seet your number B:")
-N3= input("seet ypur number C :")
-
-if N1 and N2 and N2 == "" :
-    print("ERROR")
+if not n1_text.isdigit() and not (n1_text.startswith("-") and n1_text[1:].isdigit()):
+    print("Error: invalid input")
+elif not n2_text.isdigit() and not (n2_text.startswith("-") and n2_text[1:].isdigit()):
+    print("Error: invalid input")
+elif not n3_text.isdigit() and not (n3_text.startswith("-") and n3_text[1:].isdigit()):
+    print("Error: invalid input")
 else:
-    try:
-        sum= (N1+N2+N3)
-        print(sum)
-        average_value = sum / 3
-        print(average_value)
-        max_valuable = max(N1,N2,N3)
-        print(max_valuable)
-        min_valuable = min(N1,N2,N3)
-        print(min_valuable)
-        if  all_eve(N1%2 =0)and (N2%2 =0) and (N3%2 =0)
-    except:
-       print(all_even)
-    
+    n1 = int(n1_text)
+    n2 = int(n2_text)
+    n3 = int(n3_text)
 
+    sum_value = n1 + n2 + n3
+    average_value = sum_value / 3
+    max_value = max(n1, n2, n3)
+    min_value = min(n1, n2, n3)
+    all_even = (n1 % 2 == 0) and (n2 % 2 == 0) and (n3 % 2 == 0)
+
+    print("Sum:", sum_value)
+    print("Average:", average_value)
+    print("Max:", max_value)
+    print("Min:", min_value)
+    print("All even:", str(all_even).lower())
+
+#7.5 Problem 5: Loan eligibility
+monthly_income_text = input("Monthly income: ")
+monthly_debt_text = input("Monthly debt: ")
+credit_score_text = input("Credit score: ")
+
+try:
+    monthly_income = float(monthly_income_text)
+    monthly_debt = float(monthly_debt_text)
+    credit_score = int(credit_score_text)
+except:
+    print("Error: invalid input")
+    exit()
+
+if monthly_income <= 0.0 or monthly_debt < 0.0 or credit_score < 0:
+    print("Error: invalid input")
+else:
+    debt_ratio = monthly_debt / monthly_income
+    eligible = (monthly_income >= 8000.0 and debt_ratio <= 0.4 and credit_score >= 650)
+
+    print("Debt ratio:", debt_ratio)
+    print("Eligible:", str(eligible).lower())
+ 
+#7.6 Problem 6: Body Mass Index (BMI) and category flag
+
+weing_k= input("seet your weing : ").strip()
+heingt_m= input("seet your heingt :").strip()
+
+if weing_k == "" or heingt_m == "":
+    print("ERROR ")
+else:
+    weing_k= float(weing_k)
+    heingt_m= float(heingt_m)
+
+    if weing_k <= 0 or heingt_m <= 0 :
+        print("ERROR")
+    else:
+        bmi = weing_k / (heingt_m * heingt_m)
+        is_underweight= (bmi < 18.5) 
+        is_normal=(18.5 <= bmi < 25.0)
+        is_overweight=(bmi >= 25.0)
+
+
+print("BMI :", bmi),
+print("underweigth",is_underweight)
+print("normal :", is_normal)
+print("overweight", is_overweight)
+
+
+#8. CONCLUSIONES 
+"En este documento se demostró cómo los tipos numéricos int"
+" y float permiten realizar cálculos reales, desde operaciones "
+"básicas hasta conversiones y fórmulas más complejas. También se "
+"utilizó el tipo bool, generado a través de comparaciones y operadores"
+" lógicos, para tomar decisiones dentro del programa de manera clara y "
+"estructurada. Se evidenció la importancia de validar los datos de entrada,"
+" especialmente rangos mínimos y evitar divisiones entre cero, ya que estas "
+"verificaciones previenen errores y resultados inconsistentes. "
+"Además, se aplicaron condiciones combinadas usando and, or y not, mostrando "
+"cómo estos patrones permiten crear reglas lógicas precisas que se repiten en"
+" problemas reales como nómina, descuentos, préstamos y evaluaciones de salud."
+" En general, el trabajo reforzó el uso correcto de variables "
+
+#9 referencias 
+"""
+Python Documentation – Built-in Types: Numeric Types (int, float)
+    https://docs.python.org/3/library/stdtypes.html#numeric-types-int-float-complex
+
+ Python Documentation – Boolean Type (bool) and Truth Value Testing
+    https://docs.python.org/3/library/stdtypes.html#truth-value-testing
+Python Documentation – Expressions, Operators (Arithmetic, Comparison, Logical)
+    https://docs.python.org/3/reference/expressions.html
+
+ “Automate the Boring Stuff with Python” – Basic Programming Concepts (Variables, Input Validation)
+    https://automatetheboringstuff.com
+ 
+   Apuntes de Programación 
+  
+"""
