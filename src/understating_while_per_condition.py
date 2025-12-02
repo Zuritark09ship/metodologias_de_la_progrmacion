@@ -21,7 +21,7 @@ while attemps < MAX_ATTEMPTS:
         attemps+=1
         reamining_attemps = MAX_ATTEMPTS - attemps
         if reamining_attemps >0:
-            print("ingresaste un pin valido ")
+            print("ingresaste un pinvalido ")
             print(f"te quedan {reamining_attemps}intenos")
         else:
             print("cuenta blqueada por puto ")
